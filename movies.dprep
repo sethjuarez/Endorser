@@ -1,0 +1,475 @@
+{
+  "schemaVersion": 61,
+  "id": "dd9b6e37-3c3e-4ef9-8b60-d4d185bb26f3",
+  "activities": [
+    {
+      "id": "c45b8502-ef6d-4b78-ae6a-f26ee41142b6",
+      "name": "movies",
+      "blocks": [
+        {
+          "id": "2713e632-b15e-42ef-92c2-0fd878c390bd",
+          "type": "Microsoft.DPrep.GetFilesBlock",
+          "arguments": {
+            "path": {
+              "target": 0,
+              "resourceDetails": [
+                {
+                  "path": "./data/ml-latest-small/movies.csv"
+                }
+              ]
+            }
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "092a146f-7638-4edf-baae-ffa2f0df8ffb",
+          "type": "Microsoft.DPrep.ParseDelimitedBlock",
+          "arguments": {
+            "columnHeadersMode": 3,
+            "fileEncoding": 0,
+            "handleQuotedLineBreaks": false,
+            "preview": false,
+            "separator": ",",
+            "skipRows": 0,
+            "skipRowsMode": 0
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "b9051c83-bbd3-44c9-a541-8609d10a036d",
+          "type": "Microsoft.DPrep.SetColumnTypesBlock",
+          "arguments": {
+            "columnConversion": [
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "Path"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "title"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "genres"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "movieId"
+                  }
+                },
+                "typeProperty": 3
+              }
+            ]
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "f5dce555-b953-49cf-a8ee-601a40051543",
+          "type": "Microsoft.DPrep.DropColumnsBlock",
+          "arguments": {
+            "columns": {
+              "type": 0,
+              "details": {
+                "selectedColumns": [
+                  "Path"
+                ]
+              }
+            }
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "8311c89a-7e78-420a-bf67-c32f91055929",
+          "type": "Microsoft.DPrep.ExpressionAddColumnBlock",
+          "arguments": {
+            "expression": {"r":["Invoke",[{"r":["Identifier","String_Contains"]},[{"r":["RecordField",[{"r":["Identifier","row"]},"genres"]]},"Documentary"]]]},
+            "newColumnName": "Documentary",
+            "priorColumn": {
+              "type": 2,
+              "details": {
+                "selectedColumn": "genres"
+              }
+            }
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "1946020c-0451-4a71-b320-3fc117caf830",
+          "type": "Microsoft.DPrep.ExpressionAddColumnBlock",
+          "arguments": {
+            "expression": {"r":["Invoke",[{"r":["Identifier","String_Contains"]},[{"r":["RecordField",[{"r":["Identifier","row"]},"genres"]]},"Children"]]]},
+            "newColumnName": "Children",
+            "priorColumn": {
+              "type": 2,
+              "details": {
+                "selectedColumn": "genres"
+              }
+            }
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "57143a4e-d4ee-4322-8ac7-ec91c79c7508",
+          "type": "Microsoft.DPrep.ExpressionAddColumnBlock",
+          "arguments": {
+            "expression": {"r":["Invoke",[{"r":["Identifier","String_Contains"]},[{"r":["RecordField",[{"r":["Identifier","row"]},"genres"]]},"Action"]]]},
+            "newColumnName": "Action",
+            "priorColumn": {
+              "type": 2,
+              "details": {
+                "selectedColumn": "genres"
+              }
+            }
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "ad7b07e4-ae89-4f07-855a-ffc7d2018445",
+          "type": "Microsoft.DPrep.ExpressionAddColumnBlock",
+          "arguments": {
+            "expression": {"r":["Invoke",[{"r":["Identifier","String_Contains"]},[{"r":["RecordField",[{"r":["Identifier","row"]},"genres"]]},"Film-Noir"]]]},
+            "newColumnName": "Film-Noir",
+            "priorColumn": {
+              "type": 2,
+              "details": {
+                "selectedColumn": "genres"
+              }
+            }
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "535df6bb-e984-4062-ac09-4f0a5ae2f56f",
+          "type": "Microsoft.DPrep.ExpressionAddColumnBlock",
+          "arguments": {
+            "expression": {"r":["Invoke",[{"r":["Identifier","String_Contains"]},[{"r":["RecordField",[{"r":["Identifier","row"]},"genres"]]},"Drama"]]]},
+            "newColumnName": "Drama",
+            "priorColumn": {
+              "type": 2,
+              "details": {
+                "selectedColumn": "genres"
+              }
+            }
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "662aae9a-eda9-44a3-9a64-2f7f32f959f9",
+          "type": "Microsoft.DPrep.ExpressionAddColumnBlock",
+          "arguments": {
+            "expression": {"r":["Invoke",[{"r":["Identifier","String_Contains"]},[{"r":["RecordField",[{"r":["Identifier","row"]},"genres"]]},"Adventure"]]]},
+            "newColumnName": "Adventure",
+            "priorColumn": {
+              "type": 2,
+              "details": {
+                "selectedColumn": "genres"
+              }
+            }
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "e93f9f05-45df-4f3c-8b33-e57e347798d0",
+          "type": "Microsoft.DPrep.ExpressionAddColumnBlock",
+          "arguments": {
+            "expression": {"r":["Invoke",[{"r":["Identifier","String_Contains"]},[{"r":["RecordField",[{"r":["Identifier","row"]},"genres"]]},"Fantasy"]]]},
+            "newColumnName": "Fantasy",
+            "priorColumn": {
+              "type": 2,
+              "details": {
+                "selectedColumn": "genres"
+              }
+            }
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "b3979d20-b1b3-41b1-b67b-a0912a116ce3",
+          "type": "Microsoft.DPrep.ExpressionAddColumnBlock",
+          "arguments": {
+            "expression": {"r":["Invoke",[{"r":["Identifier","String_Contains"]},[{"r":["RecordField",[{"r":["Identifier","row"]},"genres"]]},"IMAX"]]]},
+            "newColumnName": "IMAX",
+            "priorColumn": {
+              "type": 2,
+              "details": {
+                "selectedColumn": "genres"
+              }
+            }
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "d58f31a1-b483-4543-a2c9-0bf8abf963b3",
+          "type": "Microsoft.DPrep.ExpressionAddColumnBlock",
+          "arguments": {
+            "expression": {"r":["Invoke",[{"r":["Identifier","String_Contains"]},[{"r":["RecordField",[{"r":["Identifier","row"]},"genres"]]},"Mystery"]]]},
+            "newColumnName": "Mystery",
+            "priorColumn": {
+              "type": 2,
+              "details": {
+                "selectedColumn": "genres"
+              }
+            }
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "f011b924-0e8b-4036-bdfd-f0a644f0f942",
+          "type": "Microsoft.DPrep.ExpressionAddColumnBlock",
+          "arguments": {
+            "expression": {"r":["Invoke",[{"r":["Identifier","String_Contains"]},[{"r":["RecordField",[{"r":["Identifier","row"]},"genres"]]},"Musical"]]]},
+            "newColumnName": "Musical",
+            "priorColumn": {
+              "type": 2,
+              "details": {
+                "selectedColumn": "genres"
+              }
+            }
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "5f6d802a-fe6a-4b90-b1b1-5bca44c52b4f",
+          "type": "Microsoft.DPrep.ExpressionAddColumnBlock",
+          "arguments": {
+            "expression": {"r":["Invoke",[{"r":["Identifier","String_Contains"]},[{"r":["RecordField",[{"r":["Identifier","row"]},"genres"]]},"Sci-Fi"]]]},
+            "newColumnName": "Sci-Fi",
+            "priorColumn": {
+              "type": 2,
+              "details": {
+                "selectedColumn": "genres"
+              }
+            }
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "d9c057a3-ab60-41fe-ab29-9654703a6552",
+          "type": "Microsoft.DPrep.ExpressionAddColumnBlock",
+          "arguments": {
+            "expression": {"r":["Invoke",[{"r":["Identifier","String_Contains"]},[{"r":["RecordField",[{"r":["Identifier","row"]},"genres"]]},"War"]]]},
+            "newColumnName": "War",
+            "priorColumn": {
+              "type": 2,
+              "details": {
+                "selectedColumn": "genres"
+              }
+            }
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "9073e1dd-6e5c-4db5-929b-7013ff7467fc",
+          "type": "Microsoft.DPrep.ExpressionAddColumnBlock",
+          "arguments": {
+            "expression": {"r":["Invoke",[{"r":["Identifier","String_Contains"]},[{"r":["RecordField",[{"r":["Identifier","row"]},"genres"]]},"Crime"]]]},
+            "newColumnName": "Crime",
+            "priorColumn": {
+              "type": 2,
+              "details": {
+                "selectedColumn": "genres"
+              }
+            }
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "68a3125e-ceb4-4d5f-88c2-d3e39e08e40f",
+          "type": "Microsoft.DPrep.ExpressionAddColumnBlock",
+          "arguments": {
+            "expression": {"r":["Invoke",[{"r":["Identifier","String_Contains"]},[{"r":["RecordField",[{"r":["Identifier","row"]},"genres"]]},"(no genres listed)"]]]},
+            "newColumnName": "(no genres listed)",
+            "priorColumn": {
+              "type": 2,
+              "details": {
+                "selectedColumn": "genres"
+              }
+            }
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "996c8c83-bf6c-4523-992b-5e5378a75e49",
+          "type": "Microsoft.DPrep.ExpressionAddColumnBlock",
+          "arguments": {
+            "expression": {"r":["Invoke",[{"r":["Identifier","String_Contains"]},[{"r":["RecordField",[{"r":["Identifier","row"]},"genres"]]},"Romance"]]]},
+            "newColumnName": "Romance",
+            "priorColumn": {
+              "type": 2,
+              "details": {
+                "selectedColumn": "genres"
+              }
+            }
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "f0fe7ff0-a063-4ad3-88ac-43cb8a5e9db9",
+          "type": "Microsoft.DPrep.ExpressionAddColumnBlock",
+          "arguments": {
+            "expression": {"r":["Invoke",[{"r":["Identifier","String_Contains"]},[{"r":["RecordField",[{"r":["Identifier","row"]},"genres"]]},"Comedy"]]]},
+            "newColumnName": "Comedy",
+            "priorColumn": {
+              "type": 2,
+              "details": {
+                "selectedColumn": "genres"
+              }
+            }
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "032cc714-1df4-43b0-977b-b21fceb5259f",
+          "type": "Microsoft.DPrep.ExpressionAddColumnBlock",
+          "arguments": {
+            "expression": {"r":["Invoke",[{"r":["Identifier","String_Contains"]},[{"r":["RecordField",[{"r":["Identifier","row"]},"genres"]]},"Thriller"]]]},
+            "newColumnName": "Thriller",
+            "priorColumn": {
+              "type": 2,
+              "details": {
+                "selectedColumn": "genres"
+              }
+            }
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "a807380c-7b0e-4c25-a1ee-6c74aaeec5a6",
+          "type": "Microsoft.DPrep.ExpressionAddColumnBlock",
+          "arguments": {
+            "expression": {"r":["Invoke",[{"r":["Identifier","String_Contains"]},[{"r":["RecordField",[{"r":["Identifier","row"]},"genres"]]},"Western"]]]},
+            "newColumnName": "Western",
+            "priorColumn": {
+              "type": 2,
+              "details": {
+                "selectedColumn": "genres"
+              }
+            }
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "4502d53a-4184-45f0-8205-b89c615dc363",
+          "type": "Microsoft.DPrep.ExpressionAddColumnBlock",
+          "arguments": {
+            "expression": {"r":["Invoke",[{"r":["Identifier","String_Contains"]},[{"r":["RecordField",[{"r":["Identifier","row"]},"genres"]]},"Animation"]]]},
+            "newColumnName": "Animation",
+            "priorColumn": {
+              "type": 2,
+              "details": {
+                "selectedColumn": "genres"
+              }
+            }
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "58826898-d91c-4deb-bc0a-1121a58a557e",
+          "type": "Microsoft.DPrep.ExpressionAddColumnBlock",
+          "arguments": {
+            "expression": {"r":["Invoke",[{"r":["Identifier","String_Contains"]},[{"r":["RecordField",[{"r":["Identifier","row"]},"genres"]]},"Horror"]]]},
+            "newColumnName": "Horror",
+            "priorColumn": {
+              "type": 2,
+              "details": {
+                "selectedColumn": "genres"
+              }
+            }
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        }
+      ],
+      "inspectors": []
+    }
+  ],
+  "runConfigurations": []
+}
