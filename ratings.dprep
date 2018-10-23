@@ -1,0 +1,161 @@
+{
+  "schemaVersion": 61,
+  "id": "f7beef26-5448-4079-bb88-f32d8ba18a2c",
+  "activities": [
+    {
+      "id": "9646e421-1ff7-44a5-9365-6668cadd95e4",
+      "name": "ratings",
+      "blocks": [
+        {
+          "id": "5d98d600-070a-4374-9d5f-ec7196a50034",
+          "type": "Microsoft.DPrep.GetFilesBlock",
+          "arguments": {
+            "path": {
+              "target": 0,
+              "resourceDetails": [
+                {
+                  "path": "./data/ml-latest-small/ratings.csv"
+                }
+              ]
+            }
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "4b61979d-2ee7-4cfb-b0fd-c0a72ce1e59f",
+          "type": "Microsoft.DPrep.ParseDelimitedBlock",
+          "arguments": {
+            "columnHeadersMode": 3,
+            "fileEncoding": 0,
+            "handleQuotedLineBreaks": false,
+            "preview": false,
+            "separator": ",",
+            "skipRows": 0,
+            "skipRowsMode": 0
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "c85bd03c-b79c-496e-826b-1ef3be1dff11",
+          "type": "Microsoft.DPrep.SetColumnTypesBlock",
+          "arguments": {
+            "columnConversion": [
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "Path"
+                  }
+                },
+                "typeProperty": 0
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "userId"
+                  }
+                },
+                "typeProperty": 3
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "rating"
+                  }
+                },
+                "typeProperty": 3
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "timestamp"
+                  }
+                },
+                "typeProperty": 3
+              },
+              {
+                "column": {
+                  "type": 2,
+                  "details": {
+                    "selectedColumn": "movieId"
+                  }
+                },
+                "typeProperty": 3
+              }
+            ]
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "2f5082a4-3a3d-46b0-a1be-f02b183514fe",
+          "type": "Microsoft.DPrep.DropColumnsBlock",
+          "arguments": {
+            "columns": {
+              "type": 0,
+              "details": {
+                "selectedColumns": [
+                  "Path"
+                ]
+              }
+            }
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "f29744e2-680a-4fda-8dc6-9b10acea0ec8",
+          "type": "Microsoft.DPrep.DropColumnsBlock",
+          "arguments": {
+            "columns": {
+              "type": 0,
+              "details": {
+                "selectedColumns": [
+                  "timestamp"
+                ]
+              }
+            }
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        },
+        {
+          "id": "d1c8e610-9431-4cfc-a66d-59b814ed17c0",
+          "type": "Microsoft.DPrep.ToLongBlock",
+          "arguments": {
+            "columns": {
+              "type": 0,
+              "details": {
+                "selectedColumns": [
+                  "userId",
+                  "movieId"
+                ]
+              }
+            }
+          },
+          "localData": {},
+          "isEnabled": true,
+          "name": null,
+          "annotation": null
+        }
+      ],
+      "inspectors": []
+    }
+  ],
+  "runConfigurations": []
+}
