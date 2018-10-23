@@ -1,13 +1,13 @@
 {
   "schemaVersion": 61,
-  "id": "dd9b6e37-3c3e-4ef9-8b60-d4d185bb26f3",
+  "id": "786cb635-e8ee-4966-bd1c-a635eb722f86",
   "activities": [
     {
-      "id": "c45b8502-ef6d-4b78-ae6a-f26ee41142b6",
+      "id": "6a7c709a-fc8e-4842-b959-d3d1dfd8c472",
       "name": "movies",
       "blocks": [
         {
-          "id": "2713e632-b15e-42ef-92c2-0fd878c390bd",
+          "id": "78d97f1e-78c7-494b-8a21-381ff33d5fb7",
           "type": "Microsoft.DPrep.GetFilesBlock",
           "arguments": {
             "path": {
@@ -25,7 +25,7 @@
           "annotation": null
         },
         {
-          "id": "092a146f-7638-4edf-baae-ffa2f0df8ffb",
+          "id": "4c07906c-dc86-46e6-9eaf-755bdeffc196",
           "type": "Microsoft.DPrep.ParseDelimitedBlock",
           "arguments": {
             "columnHeadersMode": 3,
@@ -42,7 +42,7 @@
           "annotation": null
         },
         {
-          "id": "b9051c83-bbd3-44c9-a541-8609d10a036d",
+          "id": "7f25426e-1f8c-4686-b036-f40ba96f4be3",
           "type": "Microsoft.DPrep.SetColumnTypesBlock",
           "arguments": {
             "columnConversion": [
@@ -59,7 +59,7 @@
                 "column": {
                   "type": 2,
                   "details": {
-                    "selectedColumn": "title"
+                    "selectedColumn": "genres"
                   }
                 },
                 "typeProperty": 0
@@ -68,7 +68,7 @@
                 "column": {
                   "type": 2,
                   "details": {
-                    "selectedColumn": "genres"
+                    "selectedColumn": "title"
                   }
                 },
                 "typeProperty": 0
@@ -90,7 +90,7 @@
           "annotation": null
         },
         {
-          "id": "f5dce555-b953-49cf-a8ee-601a40051543",
+          "id": "69e9a119-f6e1-482f-a7e4-a5d0be79a435",
           "type": "Microsoft.DPrep.DropColumnsBlock",
           "arguments": {
             "columns": {
@@ -108,7 +108,7 @@
           "annotation": null
         },
         {
-          "id": "8311c89a-7e78-420a-bf67-c32f91055929",
+          "id": "949f3af7-ac18-4c3a-a66a-5a0b0027129a",
           "type": "Microsoft.DPrep.ExpressionAddColumnBlock",
           "arguments": {
             "expression": {"r":["Invoke",[{"r":["Identifier","String_Contains"]},[{"r":["RecordField",[{"r":["Identifier","row"]},"genres"]]},"Documentary"]]]},
@@ -126,7 +126,7 @@
           "annotation": null
         },
         {
-          "id": "1946020c-0451-4a71-b320-3fc117caf830",
+          "id": "ccfadb5a-df70-4d92-b700-89ae8946fdf1",
           "type": "Microsoft.DPrep.ExpressionAddColumnBlock",
           "arguments": {
             "expression": {"r":["Invoke",[{"r":["Identifier","String_Contains"]},[{"r":["RecordField",[{"r":["Identifier","row"]},"genres"]]},"Children"]]]},
@@ -144,7 +144,7 @@
           "annotation": null
         },
         {
-          "id": "57143a4e-d4ee-4322-8ac7-ec91c79c7508",
+          "id": "4d2373a6-40d0-4513-b805-cdfd9ddaf86a",
           "type": "Microsoft.DPrep.ExpressionAddColumnBlock",
           "arguments": {
             "expression": {"r":["Invoke",[{"r":["Identifier","String_Contains"]},[{"r":["RecordField",[{"r":["Identifier","row"]},"genres"]]},"Action"]]]},
@@ -162,7 +162,7 @@
           "annotation": null
         },
         {
-          "id": "ad7b07e4-ae89-4f07-855a-ffc7d2018445",
+          "id": "505d2eef-2fb5-4bbb-be8c-9443a632a908",
           "type": "Microsoft.DPrep.ExpressionAddColumnBlock",
           "arguments": {
             "expression": {"r":["Invoke",[{"r":["Identifier","String_Contains"]},[{"r":["RecordField",[{"r":["Identifier","row"]},"genres"]]},"Film-Noir"]]]},
@@ -180,7 +180,7 @@
           "annotation": null
         },
         {
-          "id": "535df6bb-e984-4062-ac09-4f0a5ae2f56f",
+          "id": "40b73993-7479-4e18-85dd-65bceb718924",
           "type": "Microsoft.DPrep.ExpressionAddColumnBlock",
           "arguments": {
             "expression": {"r":["Invoke",[{"r":["Identifier","String_Contains"]},[{"r":["RecordField",[{"r":["Identifier","row"]},"genres"]]},"Drama"]]]},
@@ -198,7 +198,7 @@
           "annotation": null
         },
         {
-          "id": "662aae9a-eda9-44a3-9a64-2f7f32f959f9",
+          "id": "71ec52a5-376b-4e69-a770-0f7b29230c0f",
           "type": "Microsoft.DPrep.ExpressionAddColumnBlock",
           "arguments": {
             "expression": {"r":["Invoke",[{"r":["Identifier","String_Contains"]},[{"r":["RecordField",[{"r":["Identifier","row"]},"genres"]]},"Adventure"]]]},
@@ -216,7 +216,7 @@
           "annotation": null
         },
         {
-          "id": "e93f9f05-45df-4f3c-8b33-e57e347798d0",
+          "id": "bc4aaabb-508d-424d-b576-d726e2d534f8",
           "type": "Microsoft.DPrep.ExpressionAddColumnBlock",
           "arguments": {
             "expression": {"r":["Invoke",[{"r":["Identifier","String_Contains"]},[{"r":["RecordField",[{"r":["Identifier","row"]},"genres"]]},"Fantasy"]]]},
@@ -234,7 +234,7 @@
           "annotation": null
         },
         {
-          "id": "b3979d20-b1b3-41b1-b67b-a0912a116ce3",
+          "id": "c66a6cd7-d70b-45b9-bd66-0600032e81e7",
           "type": "Microsoft.DPrep.ExpressionAddColumnBlock",
           "arguments": {
             "expression": {"r":["Invoke",[{"r":["Identifier","String_Contains"]},[{"r":["RecordField",[{"r":["Identifier","row"]},"genres"]]},"IMAX"]]]},
@@ -252,7 +252,7 @@
           "annotation": null
         },
         {
-          "id": "d58f31a1-b483-4543-a2c9-0bf8abf963b3",
+          "id": "26dd47ed-c819-41b6-87d8-7f7504616dd6",
           "type": "Microsoft.DPrep.ExpressionAddColumnBlock",
           "arguments": {
             "expression": {"r":["Invoke",[{"r":["Identifier","String_Contains"]},[{"r":["RecordField",[{"r":["Identifier","row"]},"genres"]]},"Mystery"]]]},
@@ -270,7 +270,7 @@
           "annotation": null
         },
         {
-          "id": "f011b924-0e8b-4036-bdfd-f0a644f0f942",
+          "id": "97b3ed4d-ac07-4d70-a227-6480b59cc78e",
           "type": "Microsoft.DPrep.ExpressionAddColumnBlock",
           "arguments": {
             "expression": {"r":["Invoke",[{"r":["Identifier","String_Contains"]},[{"r":["RecordField",[{"r":["Identifier","row"]},"genres"]]},"Musical"]]]},
@@ -288,7 +288,7 @@
           "annotation": null
         },
         {
-          "id": "5f6d802a-fe6a-4b90-b1b1-5bca44c52b4f",
+          "id": "7237f1a8-bec8-41fd-98f9-31c3a49d1dd4",
           "type": "Microsoft.DPrep.ExpressionAddColumnBlock",
           "arguments": {
             "expression": {"r":["Invoke",[{"r":["Identifier","String_Contains"]},[{"r":["RecordField",[{"r":["Identifier","row"]},"genres"]]},"Sci-Fi"]]]},
@@ -306,7 +306,7 @@
           "annotation": null
         },
         {
-          "id": "d9c057a3-ab60-41fe-ab29-9654703a6552",
+          "id": "51e7fe80-ab69-4e2f-afc9-4d154822761c",
           "type": "Microsoft.DPrep.ExpressionAddColumnBlock",
           "arguments": {
             "expression": {"r":["Invoke",[{"r":["Identifier","String_Contains"]},[{"r":["RecordField",[{"r":["Identifier","row"]},"genres"]]},"War"]]]},
@@ -324,7 +324,7 @@
           "annotation": null
         },
         {
-          "id": "9073e1dd-6e5c-4db5-929b-7013ff7467fc",
+          "id": "2a9bf7ff-54f1-41aa-bf5c-8970f131763e",
           "type": "Microsoft.DPrep.ExpressionAddColumnBlock",
           "arguments": {
             "expression": {"r":["Invoke",[{"r":["Identifier","String_Contains"]},[{"r":["RecordField",[{"r":["Identifier","row"]},"genres"]]},"Crime"]]]},
@@ -342,7 +342,7 @@
           "annotation": null
         },
         {
-          "id": "68a3125e-ceb4-4d5f-88c2-d3e39e08e40f",
+          "id": "57aee79a-d4a0-4a16-ad10-23b4016ba952",
           "type": "Microsoft.DPrep.ExpressionAddColumnBlock",
           "arguments": {
             "expression": {"r":["Invoke",[{"r":["Identifier","String_Contains"]},[{"r":["RecordField",[{"r":["Identifier","row"]},"genres"]]},"(no genres listed)"]]]},
@@ -360,7 +360,7 @@
           "annotation": null
         },
         {
-          "id": "996c8c83-bf6c-4523-992b-5e5378a75e49",
+          "id": "0fc49119-83e9-4eab-a913-5b61983b8a7c",
           "type": "Microsoft.DPrep.ExpressionAddColumnBlock",
           "arguments": {
             "expression": {"r":["Invoke",[{"r":["Identifier","String_Contains"]},[{"r":["RecordField",[{"r":["Identifier","row"]},"genres"]]},"Romance"]]]},
@@ -378,7 +378,7 @@
           "annotation": null
         },
         {
-          "id": "f0fe7ff0-a063-4ad3-88ac-43cb8a5e9db9",
+          "id": "6c83c0aa-322e-4514-99ff-f53ba60dfb10",
           "type": "Microsoft.DPrep.ExpressionAddColumnBlock",
           "arguments": {
             "expression": {"r":["Invoke",[{"r":["Identifier","String_Contains"]},[{"r":["RecordField",[{"r":["Identifier","row"]},"genres"]]},"Comedy"]]]},
@@ -396,7 +396,7 @@
           "annotation": null
         },
         {
-          "id": "032cc714-1df4-43b0-977b-b21fceb5259f",
+          "id": "daacef23-9940-4038-bdbe-6ea1943ed36c",
           "type": "Microsoft.DPrep.ExpressionAddColumnBlock",
           "arguments": {
             "expression": {"r":["Invoke",[{"r":["Identifier","String_Contains"]},[{"r":["RecordField",[{"r":["Identifier","row"]},"genres"]]},"Thriller"]]]},
@@ -414,7 +414,7 @@
           "annotation": null
         },
         {
-          "id": "a807380c-7b0e-4c25-a1ee-6c74aaeec5a6",
+          "id": "3433b4dc-e324-413e-876b-3a93c68f0880",
           "type": "Microsoft.DPrep.ExpressionAddColumnBlock",
           "arguments": {
             "expression": {"r":["Invoke",[{"r":["Identifier","String_Contains"]},[{"r":["RecordField",[{"r":["Identifier","row"]},"genres"]]},"Western"]]]},
@@ -432,7 +432,7 @@
           "annotation": null
         },
         {
-          "id": "4502d53a-4184-45f0-8205-b89c615dc363",
+          "id": "36348a2c-515e-48b9-bd54-7cd3223108af",
           "type": "Microsoft.DPrep.ExpressionAddColumnBlock",
           "arguments": {
             "expression": {"r":["Invoke",[{"r":["Identifier","String_Contains"]},[{"r":["RecordField",[{"r":["Identifier","row"]},"genres"]]},"Animation"]]]},
@@ -450,7 +450,7 @@
           "annotation": null
         },
         {
-          "id": "58826898-d91c-4deb-bc0a-1121a58a557e",
+          "id": "760884e4-b685-4be1-8b9e-47a8c51403c8",
           "type": "Microsoft.DPrep.ExpressionAddColumnBlock",
           "arguments": {
             "expression": {"r":["Invoke",[{"r":["Identifier","String_Contains"]},[{"r":["RecordField",[{"r":["Identifier","row"]},"genres"]]},"Horror"]]]},
