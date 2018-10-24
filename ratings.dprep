@@ -1,13 +1,13 @@
 {
   "schemaVersion": 61,
-  "id": "f7beef26-5448-4079-bb88-f32d8ba18a2c",
+  "id": "101ab470-7984-44fb-ad26-96494ac66156",
   "activities": [
     {
-      "id": "9646e421-1ff7-44a5-9365-6668cadd95e4",
+      "id": "5c258165-47cb-4110-9b3c-8973b2a39ca2",
       "name": "ratings",
       "blocks": [
         {
-          "id": "5d98d600-070a-4374-9d5f-ec7196a50034",
+          "id": "f0694b94-5433-4d39-bf5a-1ea1169d6cfa",
           "type": "Microsoft.DPrep.GetFilesBlock",
           "arguments": {
             "path": {
@@ -25,7 +25,7 @@
           "annotation": null
         },
         {
-          "id": "4b61979d-2ee7-4cfb-b0fd-c0a72ce1e59f",
+          "id": "a385ad40-9a77-4218-a46c-f06ec46470f2",
           "type": "Microsoft.DPrep.ParseDelimitedBlock",
           "arguments": {
             "columnHeadersMode": 3,
@@ -42,7 +42,7 @@
           "annotation": null
         },
         {
-          "id": "c85bd03c-b79c-496e-826b-1ef3be1dff11",
+          "id": "c0fa7dd8-f0c1-49f7-b571-a7f346492cc7",
           "type": "Microsoft.DPrep.SetColumnTypesBlock",
           "arguments": {
             "columnConversion": [
@@ -59,7 +59,7 @@
                 "column": {
                   "type": 2,
                   "details": {
-                    "selectedColumn": "userId"
+                    "selectedColumn": "timestamp"
                   }
                 },
                 "typeProperty": 3
@@ -77,7 +77,7 @@
                 "column": {
                   "type": 2,
                   "details": {
-                    "selectedColumn": "timestamp"
+                    "selectedColumn": "userId"
                   }
                 },
                 "typeProperty": 3
@@ -99,7 +99,7 @@
           "annotation": null
         },
         {
-          "id": "2f5082a4-3a3d-46b0-a1be-f02b183514fe",
+          "id": "a16a8fa4-d149-407d-81ec-961c97e4ed7c",
           "type": "Microsoft.DPrep.DropColumnsBlock",
           "arguments": {
             "columns": {
@@ -117,7 +117,7 @@
           "annotation": null
         },
         {
-          "id": "f29744e2-680a-4fda-8dc6-9b10acea0ec8",
+          "id": "4e23d94d-a1e6-4c11-b4ad-611e6a638aa7",
           "type": "Microsoft.DPrep.DropColumnsBlock",
           "arguments": {
             "columns": {
@@ -135,7 +135,7 @@
           "annotation": null
         },
         {
-          "id": "d1c8e610-9431-4cfc-a66d-59b814ed17c0",
+          "id": "44fdeb88-11d1-4b55-807b-b3da81c57266",
           "type": "Microsoft.DPrep.ToLongBlock",
           "arguments": {
             "columns": {

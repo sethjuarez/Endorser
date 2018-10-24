@@ -39,6 +39,12 @@ def query_ratings(dataflow: dprep.api.dataflow.Dataflow, userId: int, topn: int)
     assert len(x[0]) == topn, "Invalid return length for query"
     return x[0]
 
+def query_movie_ratings(dataflow: dprep.api.dataflow.Dataflow, userId: int) -> np.ndarray:
+    ff = dataflow.filter(expression=dprep.col('userId') == userId)
+    ff = ff.drop_columns(columns=['userId'])
+    ff = ff.sort_desc(columns='rating')
+    return ff.to_pandas_dataframe()
+
 if __name__ == "__main__":
     x = np.ones(20) * 5
     pred = np.array([4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5])
